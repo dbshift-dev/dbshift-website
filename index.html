@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Self-hosted database migration tool for MySQL, PostgreSQL, SQL Server with zero downtime, automatic validation, and resume support.">
+    <meta name="keywords" content="database migration, mysql, postgresql, sql server, zero downtime, self-hosted">
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="DBShift - Migrate Databases Without Downtime">
+    <meta property="og:description" content="Self-hosted migration tool with zero data loss, automatic validation, and resume support.">
+    <meta property="og:type" content="website">
+
+    <title>DBShift - Migrate Databases Without Downtime</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container nav-container">
+            <div class="nav-brand">
+                <div class="logo">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                        <rect width="32" height="32" rx="8" fill="#10B981"/>
+                        <path d="M16 10L20 14L16 18M16 18L12 14L16 10" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M8 22H24" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    <span>dbshift</span>
+                </div>
+            </div>
+            <div class="nav-menu" id="navMenu">
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#how-it-works" class="nav-link">How it Works</a>
+                <a href="pricing.html" class="nav-link">Pricing</a>
+                <a href="https://github.com/dbshift/dbshift" class="nav-link" target="_blank">Docs</a>
+                <a href="https://github.com/dbshift/dbshift" class="nav-link" target="_blank">GitHub</a>
+            </div>
+            <div class="nav-actions">
+                <a href="#download" class="btn btn-primary">Download Free</a>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="hero-badge">
+                        <span class="badge-dot"></span>
+                        Data migration toolkit
+                    </div>
+                    <h1 class="hero-title">
+                        Migrate Databases<br>
+                        <span class="text-gradient">Without Downtime</span>
+                    </h1>
+                    <p class="hero-description">
+                        Self-hosted migration tool for MySQL, PostgreSQL, and SQL Server
+                        with continuous sync, automatic validation, and zero data loss.
+                    </p>
+                    <div class="hero-cta">
+                        <a href="#download" class="btn btn-primary btn-large">
+                            <span>Download Free</span>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M5 10H15M15 10L11 6M15 10L11 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                        <a href="#demo" class="btn btn-secondary btn-large">
+                            <span>Live Demo</span>
+                        </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M9 12L11 14L15 10M19 10C19 14.9706 14.9706 19 10 19C5.02944 19 1 14.9706 1 10C1 5.02944 5.02944 1 10 1C14.9706 1 19 5.02944 19 10Z" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span>347 Tests Passing</span>
+                        </div>
+                        <div class="stat">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M12 15L10 17L8 15M10 17V7M4 13C2.89543 13 2 12.1046 2 11V6C2 4.89543 2.89543 4 4 4H16C17.1046 4 18 4.89543 18 6V11C18 12.1046 17.1046 13 16 13" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span>Security Scanned</span>
+                        </div>
+                        <div class="stat">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M5 2.5V17.5M15 2.5V17.5M2 5.83333H18M2 10H18M2 14.1667H18" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span>Apache 2.0 License</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="terminal">
+                        <div class="terminal-header">
+                            <span class="terminal-title">migration_map</span>
+                            <span class="terminal-status">01 → 04</span>
+                        </div>
+                        <div class="terminal-body">
+                            <div class="migration-flow">
+                                <div class="migration-node">
+                                    <div class="node-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                            <path d="M4 7C4 5.89543 4.89543 5 6 5H18C19.1046 5 20 5.89543 20 7V17C20 18.1046 19.1046 19 18 19H6C4.89543 19 4 18.1046 4 17V7Z" stroke="#94A3B8" stroke-width="2"/>
+                                            <path d="M4 10H20" stroke="#94A3B8" stroke-width="2"/>
+                                        </svg>
+                                    </div>
+                                    <div class="node-label">Source</div>
+                                    <div class="node-sublabel">Your data</div>
+                                </div>
+                                <div class="migration-arrow">
+                                    <div class="arrow-line"></div>
+                                    <div class="arrow-dot"></div>
+                                </div>
+                                <div class="migration-node migration-node-active">
+                                    <div class="node-icon node-icon-active">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                            <path d="M7 16L12 11L7 6M12 16L17 11L12 6" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </div>
+                                    <div class="node-label">dbshift</div>
+                                </div>
+                                <div class="migration-arrow">
+                                    <div class="arrow-line"></div>
+                                    <div class="arrow-dot"></div>
+                                </div>
+                                <div class="migration-node">
+                                    <div class="node-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                            <path d="M19 11H5M5 11L9 7M5 11L9 15" stroke="#94A3B8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M19 7V17" stroke="#94A3B8" stroke-width="2" stroke-linecap="round"/>
+                                        </svg>
+                                    </div>
+                                    <div class="node-label">Destination</div>
+                                    <div class="node-sublabel">Your next home</div>
+                                </div>
+                            </div>
+                            <div class="terminal-footer">
+                                <span class="terminal-info">One route, from source to destination</span>
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path d="M6 12L10 8L6 4" stroke="#10B981" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Migration Coverage -->
+    <section class="section section-gray">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">01 / Migration coverage</div>
+                <h2 class="section-title">
+                    Different systems.<br>
+                    <span class="text-gradient">One shift at a time.</span>
+                </h2>
+                <p class="section-description">
+                    Start with the kind of data you need to move. DBShift is built for migrations
+                    across databases, ELK, storage accounts, and S3 / MinIO.
+                </p>
+            </div>
+            <div class="coverage-grid">
+                <div class="coverage-card">
+                    <div class="coverage-icon">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                            <rect x="4" y="8" width="24" height="16" rx="2" stroke="#10B981" stroke-width="2"/>
+                            <line x1="4" y1="13" x2="28" y2="13" stroke="#10B981" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3 class="coverage-title">Databases</h3>
+                    <p class="coverage-description">MySQL, PostgreSQL, SQL Server - same engine and cross-engine migrations with full fidelity</p>
+                    <a href="#databases" class="coverage-link">
+                        Learn more
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                </div>
+                <div class="coverage-card">
+                    <div class="coverage-icon">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                            <circle cx="16" cy="10" r="6" stroke="#10B981" stroke-width="2"/>
+                            <circle cx="10" cy="22" r="6" stroke="#10B981" stroke-width="2"/>
+                            <circle cx="22" cy="22" r="6" stroke="#10B981" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3 class="coverage-title">ELK / Elasticsearch</h3>
+                    <p class="coverage-description">Snapshot restore from Azure Blob, cross-cluster replication, and scheduled sync</p>
+                    <a href="#elk" class="coverage-link">
+                        Learn more
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                </div>
+                <div class="coverage-card">
+                    <div class="coverage-icon">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                            <rect x="6" y="6" width="20" height="20" rx="2" stroke="#10B981" stroke-width="2"/>
+                            <path d="M6 12H26M12 6V26" stroke="#10B981" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3 class="coverage-title">Storage accounts</h3>
+                    <p class="coverage-description">Azure Blob containers with metadata, access tiers, server-side copy, and validation</p>
+                    <a href="#storage" class="coverage-link">
+                        Learn more
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                </div>
+                <div class="coverage-card">
+                    <div class="coverage-icon">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                            <path d="M8 16C8 11.5817 11.5817 8 16 8C20.4183 8 24 11.5817 24 16C24 20.4183 20.4183 24 16 24" stroke="#10B981" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M12 16C12 13.7909 13.7909 12 16 12" stroke="#10B981" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="coverage-title">S3 / MinIO</h3>
+                    <p class="coverage-description">Object storage migrations with cross-cloud support (experimental)</p>
+                    <a href="#s3" class="coverage-link">
+                        Learn more
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features / Why DBShift -->
+    <section id="features" class="section">
+        <div class="container">
+            <div class="section-header section-header-center">
+                <div class="section-label">02 / Why DBShift</div>
+                <h2 class="section-title">
+                    Built for production.<br>
+                    <span class="text-gradient">Tested at scale.</span>
+                </h2>
+                <p class="section-description">
+                    Everything you need for confident, zero-downtime database migrations
+                </p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M13 10V3L4 14H11V21L20 10H13Z" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Zero Downtime Sync</h3>
+                    <p class="feature-description">
+                        Continuous replication keeps your target in sync. Automatic cutover planning
+                        minimizes the switchover window to seconds.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="#10B981" stroke-width="2"/>
+                            <path d="M12 6V12L16 14" stroke="#10B981" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Resume Support</h3>
+                    <p class="feature-description">
+                        Failed jobs resume from the last checkpoint. Network issues, timeouts, or
+                        cancellations don't mean starting over.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Automatic Validation</h3>
+                    <p class="feature-description">
+                        Row counts, checksums, and primary-key comparison run as each table finishes.
+                        Differences are automatically fixed.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 15V3M12 3L7 8M12 3L17 8M19 21H5" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Cross-Engine Support</h3>
+                    <p class="feature-description">
+                        Migrate between MySQL, PostgreSQL, and SQL Server. Automatic type mapping with
+                        pre-flight warnings for lossy conversions.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 15C15.866 15 19 11.866 19 8C19 4.13401 15.866 1 12 1C8.13401 1 5 4.13401 5 8C5 11.866 8.13401 15 12 15Z" stroke="#10B981" stroke-width="2"/>
+                            <path d="M8.21 13.89L7 23L12 20L17 23L15.79 13.88" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Enterprise Security</h3>
+                    <p class="feature-description">
+                        Encrypted credentials at rest, role-based access control, tamper-evident audit
+                        logs, and rate-limited authentication.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M9 12H15M9 16H15M17 21H7C5.89543 21 5 20.1046 5 19V5C5 3.89543 5.89543 3 7 3H12.5858C12.851 3 13.1054 3.10536 13.2929 3.29289L18.7071 8.70711C18.8946 8.89464 19 9.149 19 9.41421V19C19 20.1046 18.1046 21 17 21Z" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Comprehensive Reports</h3>
+                    <p class="feature-description">
+                        Export migration reports as PDF, HTML, or JSON. Full audit trail with timestamps,
+                        validation results, and performance metrics.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it Works -->
+    <section id="how-it-works" class="section section-dark">
+        <div class="container">
+            <div class="section-header section-header-center">
+                <div class="section-label">03 / The approach</div>
+                <h2 class="section-title">
+                    A clear path<br>
+                    <span class="text-gradient">starts with a source.</span>
+                </h2>
+                <p class="section-description">
+                    Every migration has a beginning and an intended destination. DBShift is
+                    designed to help bring those two ends into focus.
+                </p>
+            </div>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">01</div>
+                    <div class="step-icon">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                            <rect x="6" y="10" width="20" height="12" rx="2" stroke="#10B981" stroke-width="2"/>
+                            <line x1="6" y1="15" x2="26" y2="15" stroke="#10B981" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3 class="step-title">Choose a starting point</h3>
+                    <p class="step-description">
+                        Begin with the database, ELK environment, or storage system you want to move.
+                    </p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">02</div>
+                    <div class="step-icon">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                            <path d="M10 16L14 20L22 12" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="16" cy="16" r="10" stroke="#10B981" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3 class="step-title">Define the shift</h3>
+                    <p class="step-description">
+                        Set the direction of your migration, from its source to its next destination.
+                    </p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">03</div>
+                    <div class="step-icon">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                            <path d="M16 6V26M16 26L22 20M16 26L10 20" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="step-title">Move toward what's next</h3>
+                    <p class="step-description">
+                        Use one toolkit for the migration paths that matter to your stack.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download / CTA -->
+    <section id="download" class="section section-cta">
+        <div class="container">
+            <div class="cta-content">
+                <div class="cta-text">
+                    <h2 class="cta-title">Ready to migrate your database?</h2>
+                    <p class="cta-description">
+                        Try DBShift free - no credit card, no signup. 5-minute Docker setup.
+                    </p>
+                </div>
+                <div class="cta-actions">
+                    <a href="https://github.com/dbshift/dbshift/releases" class="btn btn-primary btn-large">
+                        Download Free
+                    </a>
+                    <a href="https://github.com/dbshift/dbshift" class="btn btn-secondary btn-large">
+                        View Documentation
+                    </a>
+                </div>
+                <div class="cta-install">
+                    <div class="install-code">
+                        <code>docker compose up -d</code>
+                        <button class="copy-btn" data-copy="docker compose up -d">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M5 10V3H12V10H5Z" stroke="currentColor" stroke-width="1.5"/>
+                                <path d="M4 6H3V13H10V12" stroke="currentColor" stroke-width="1.5"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <p class="install-label">Get started in 5 minutes</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">
+                        <div class="logo">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                                <rect width="32" height="32" rx="8" fill="#10B981"/>
+                                <path d="M16 10L20 14L16 18M16 18L12 14L16 10" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M8 22H24" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                            <span>dbshift</span>
+                        </div>
+                        <p class="footer-tagline">
+                            Self-hosted database migration toolkit
+                        </p>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-title">Product</h4>
+                    <ul class="footer-links">
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <li><a href="#download">Download</a></li>
+                        <li><a href="https://github.com/dbshift/dbshift/releases">Releases</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-title">Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://github.com/dbshift/dbshift">Documentation</a></li>
+                        <li><a href="https://github.com/dbshift/dbshift">GitHub</a></li>
+                        <li><a href="https://github.com/dbshift/dbshift/issues">Report Issue</a></li>
+                        <li><a href="https://github.com/dbshift/dbshift/blob/main/CHANGELOG.md">Changelog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-title">Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="mailto:sales@yourdomain.com">Contact</a></li>
+                        <li><a href="https://github.com/dbshift/dbshift/blob/main/LICENSE">License</a></li>
+                        <li><a href="#">Privacy</a></li>
+                        <li><a href="#">Terms</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copyright">
+                    © 2026 DBShift. Apache 2.0 License. Built with ❤️ for database engineers.
+                </p>
+                <div class="footer-social">
+                    <a href="https://github.com/dbshift/dbshift" aria-label="GitHub">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M10 0C4.477 0 0 4.477 0 10c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0110 4.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C17.137 18.163 20 14.418 20 10c0-5.523-4.477-10-10-10z"/>
+                        </svg>
+                    </a>
+                    <a href="https://twitter.com/YOUR_HANDLE" aria-label="Twitter">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M6.29 18.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0020 3.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.073 4.073 0 01.8 7.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 010 16.407a11.616 11.616 0 006.29 1.84"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
